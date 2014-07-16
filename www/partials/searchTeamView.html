@@ -1,0 +1,38 @@
+<div class="cbsbgg">
+<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet" ng-click="slidePage('/cbsview')">
+            <
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">搜索</h1>
+    </div>
+ 
+</div>
+
+<div ng-controller="SearchTeamCtrl">
+
+<input
+    type="search"
+    value=""
+    placeholder="搜索球队"
+    ng-model="formData.teamname"
+    name="teamname";
+    class="topcoat-search-input">
+    
+    
+<a class="topcoat-button--cta" ngclick="searchItem()">确定</a>
+
+<ul class="pp-topcoat-list">
+        <li class="pp-topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
+           {{item.gameevents}} {{item.date}} {{item.time}}
+        </li>
+    </ul>
+
+
+</div>
+
+
+
+</div>

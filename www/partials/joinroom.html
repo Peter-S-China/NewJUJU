@@ -1,0 +1,48 @@
+<div class="loginpage">
+<div class="new-navigation-bar" ng-controller="HomeCtrl">
+    <div class="new-navigation-bar__item left quarter">
+        <a class="new-icon-button" ng-click="slidePage('/step2')">
+            <
+        </a>
+    </div>
+    <div class="new-navigation-bar__item center half">
+        <h1 class="new-navigation-bar__title">加入房间</h1>
+    </div>
+    <div class="new-navigation-bar__item right quarter">
+        
+    </div>
+</div>
+
+<div  ng-controller="JoinRoomCtrl">
+    <br>
+    <lable class="new-text-input" ng-show="message">{{ message }}</lable>
+<div Style="padding-left:20px;"> 
+    <!--房间号-->
+    <input
+        type="tel"
+        required
+        class="new-text-input"
+        name="roomnum"
+        placeholder="输入您要加入的房间号"
+        ng-model="formData.roomnum">
+        
+     <!--昵称-->
+     <input
+         type="text"
+         required
+         class="new-text-input"
+         name="nickname"
+         placeholder="输入您的昵称"
+         
+         ng-model="formData.nickname" >
+        
+    
+    
+    <a ng-click="JoinRoom()" class="next-icon-button"/>下一步</a>
+       
+  
+</div>        
+</div>
+
+</div>
+

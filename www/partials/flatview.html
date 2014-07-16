@@ -1,0 +1,45 @@
+<div class="topcoat-navigation-bar" >
+    <div class="topcoat-navigation-bar__item">
+        <a class="topcoat-icon-button" ng-click="slidePage('/cbsview')">
+            返回
+        </a>
+          <!--<a class="topcoat-icon-button" ng-click="slidePage('/myscoreview')">我的竞猜记录</a>-->
+    </div>
+</div>
+
+
+
+<div class="pad" ng-controller="GetBallAgainstinfo" >
+  
+  <ul class="topcoat-list">
+      <li class="topcoat-list__item" ng-repeat="item in items" ng-click="">
+          <img src="{{item.homeurl}}">  {{item.hometeam}} <img src="{{item.visitingurl}}">    {{item.visitingteam}}
+              
+              <p><a class="topcoat-button " ng-click="slidePage('/cbsteamdetail')">主胜{{item.homewin}}</a></p>
+              
+              
+                      
+              <p><a class="topcoat-button is-active" ng-click="">平{{item.flat}}</a></p>
+              
+              <input
+                  name="guesscore"
+                  type="tel"
+                  required
+                  class="topcoat-text-input"
+                  value=""
+                  ng-model="formData.guesscore"
+                  placeholder="500">
+                  <br>
+                
+                <a class="topcoat-button--cta" ng-click="flat()">确定</a>
+
+              
+              <p><a class="topcoat-button" ng-click="slidePage('/homelostview')">主负{{item.visitingwin}}</a></p>
+      </li>
+  </ul>
+
+</div>
+
+
+
+<ng-include src="'partials/settingsOverlay.html'"></ng-include>

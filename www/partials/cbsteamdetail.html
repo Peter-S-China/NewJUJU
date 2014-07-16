@@ -1,0 +1,100 @@
+<div class="cbsbgg">
+<div class="new-navigation-bar" >
+    <div class="new-navigation-bar__item">
+        <a  ng-click="slidePage('/cbsview')">
+            <
+        </a>
+   </div>
+    
+
+    
+    <div class="new-navigation-bar__item" style="float:right;"  ng-controller="GetGuessScore" >
+        <a  ng-repeat="item in itemsf" ng-click="loadItem(item)">
+        总积分:{{item.usercore}}可用积分:{{item.freecore}}
+        </a>
+        
+    </div>
+    
+</div>
+
+
+
+<div  class="GGSpad"  ng-controller="GetBallAgainstinfo">
+ <div  ng-repeat="item in items" ng-click="">
+            <div style="margin-left:60px;float:left;color:#fff;">
+            <img class="img2" src="{{item.homeurl}}">
+             <br>{{item.hometeam}}
+             </div>
+            <div style="margin-left:10px;float:left;padding-top:40px;color:#fff;">
+                VS
+              </div>
+             <div style="margin-left:10px;float:left;color:#fff;">
+                <img class="img2" src="{{item.visitingurl}}"><br>{{item.visitingteam}}
+                    <br>
+                    <br>
+                    
+            
+            </div>
+            
+            
+<div style="margin-left:60px;float:left;text-align: center;" ng-controller="SendcbsinfoCtrl">
+                <a  ng-click="">  <lable class="new-text-input" ng-show="message1">{{ message1 }}</lable></a>
+                
+                <br>
+                <input
+                    name="guesscore"
+                    type="tel"
+                    required
+                    class="cbs-text-input"
+                    
+                    value=""
+                    ng-model="formData.guesscore"
+                    placeholder="输入竞猜积分">
+                    
+                   <!-- <div class="cbs-button--cta" ng-click="homewin()">确定</div>-->
+                  <br><br>
+                      <lable class="new-text-input" ng-show="message2">{{ message2 }}</lable><br>
+                    
+                    <input
+                        name="guesscore1"
+                        type="tel"
+                        required
+                        class="cbs-text-input"
+                        value=""
+                        ng-model="formData.guesscore1"
+                        placeholder="输入竞猜积分">
+                        
+                        
+                      <!-- <div class="cbs-button--cta" ng-click="flat()">确定</div>-->
+                        
+                   <br><br>
+                          <lable class="new-text-input" ng-show="message3">{{ message3 }}</lable><br>
+                        
+                        <input
+                            name="guesscore2"
+                            type="tel"
+                            required
+                            class="cbs-text-input"
+                            value=""
+                            ng-model="formData.guesscore2"
+                            placeholder="输入竞猜积分">
+                            
+                          <br><br>
+                          <div style="margin-left:12px;">
+                          <div class="cbs-button--cta" ng-click="sendscore()">确定</div>
+                          <br><br><div class="cbs-button--cta" ng-click="slidePage('/myscoreview')">我的竞猜</div>
+                          </div>
+                        
+
+</div>
+    </div>
+         
+    
+    
+     </div>
+
+
+</div>
+
+
+

@@ -1,0 +1,32 @@
+<div class="loginpage">
+    <div class="new-navigation-bar" ng-controller="HomeCtrl">
+        <div class="new-navigation-bar__item left quarter">
+            <a class="new-icon-button--quiet">
+                
+            </a>
+        </div>
+        <div class="new-navigation-bar__item center half">
+            <h1 class="new-navigation-bar__title">用户登录</h1>
+        </div>
+        <div class="new-navigation-bar__item right quarter">
+            <a  ng-click="slidePage('/step1')">确定</a>
+        </div>
+    </div>
+
+<div class="pad" ng-controller="LoginCtrl" >
+     <div class="centerize" style="margin-top:40px;">
+  
+     <input
+         type="tel"
+         required
+         class="new-text-input"
+         value=""
+         ng-model="formData.tel"
+         placeholder="请输入手机号码">
+         <br>
+   
+    </div>
+    
+</div>
+
+

@@ -1,0 +1,25 @@
+
+
+
+<div class="onlineuserlistbg">
+    
+    <div  ng-controller="HomeCtrl">
+        <div class="onlineuserlist-icon-left-button" >
+            <a  ng-click="slidePage('/step3')">&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+       </div>
+        <div class="onlineuserlist-icon-right-button" >
+            <a  ng-click="slidePage('/viewuserlist','modal')">&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+        </div>
+    </div>
+    
+  
+<div ng-controller="GetUserListCtrl">
+    <ul class="new-topcoat-list" style="margin-top:20px;">
+        <li class="new-topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
+            {{item.username}}
+        </li>
+    </ul>
+</div>
+</div>

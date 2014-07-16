@@ -1,0 +1,38 @@
+<div class="gamedatingbg">
+<div class="new-navigation-bar">
+<div style="float:left;">
+    <a class="new-navigation-bar__item left quarter" ng-click="slidePage('/step3')">
+        返回
+    </a>
+</div>
+<div class="new-navigation-bar__item">
+ <lable >匿名白板</lable>
+</div>
+</div>
+
+<div style="display:block;margin-bottom:20px;margin-top:10px;" ng-controller="SendAnonymousMessageCtrl">
+<lable class="topcoat-text-input" ng-show="message">{{ message }}</lable>
+<br>
+    <input
+        type="text"
+        name="s_message"
+        required
+        class="topcoat-text-input"
+        placeholder="请输入消息内容"
+        ng-model="formData.s_message">
+        <a class="topcoat-button--cta" ng-click="sendmessage()">发送</a>
+      
+</div>
+<div class="amainchatpad">
+<div  class="topcoat-list__container list" ng-controller="AnonymousChatCtrl">
+    <h3 class="topcoat-list__header">匿名内容</h3>
+
+    <ul class="topcoat-list">
+        <li class="topcoat-list__item"  ng-repeat="item in items" >
+            <B>{{item.username}}</B> &nbsp;&nbsp;&nbsp;&nbsp;{{item.message}}
+        </li>
+     </ul>
+
+</div>
+</div>
+

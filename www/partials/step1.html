@@ -1,0 +1,30 @@
+<div class="loginpage">
+    
+
+<div class="new-navigation-bar" ng-controller="HomeCtrl">
+    <div class="new-navigation-bar__item left quarter">
+        <a style="margin-top:10px;"class="new-button" ng-click="slidePage('/')">
+           <
+        </a>
+    </div>
+    <div class="new-navigation-bar__item center half">
+        <h1 class="new-navigation-bar__title">用户登录</h1>
+    </div>
+    <div class="new-navigation-bar__item right quarter">
+
+    </div>
+</div>
+
+
+<div  ng-controller="GetCodesCtrl">
+    
+  <div class="centerize" style="margin-top:30px;">
+           <div ng-repeat="item in items" ng-click="loadItem(item)">
+          验证码 <span style="margin:10px;"> {{items.result}}</span>&nbsp;&nbsp;
+            <a class="new-button--cta"  >下一步</a>
+           </div>
+       </div>
+</div>
+
+</div>
+

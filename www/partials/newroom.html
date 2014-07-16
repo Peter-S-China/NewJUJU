@@ -1,0 +1,46 @@
+<div class="loginpage">
+<div class="new-navigation-bar" ng-controller="HomeCtrl">
+    <div class="new-navigation-bar__item left quarter">
+        <a class="new-icon-button" ng-click="slidePage('/step2')">
+           <
+        </a>
+    </div>
+    <div class="new-navigation-bar__item center half">
+        <h1 class="new-navigation-bar__title">创建房间</h1>
+    </div>
+    <div class="new-navigation-bar__item right quarter">
+    
+    </div>
+</div>
+
+
+<div ng-controller="GetRoomNumCtrl">
+ 
+ <br>
+
+
+    <lable class="new-text-input">组局号码:{{items.homenum}}</lable>
+    <lable class="new-text-input" ng-show="message">{{ message }}</lable>
+
+
+    
+<div Style="padding-left:20px;">    <!-- NAME -->
+  
+  <input
+      type="text"
+      name="name"
+      required
+      class="new-text-input"
+      placeholder="请输入昵称"
+     
+      ng-model="formData.name">
+ 
+     
+    <a ng-click="CreatRoom()" class="next-icon-button"/>下一步</a>
+    
+    <br/>
+</div>
+
+
+</div>
+</div>

@@ -1,0 +1,62 @@
+<div class="cbsbgg">
+
+ <div style="margin:18px;" ng-controller="HomeCtrl">
+    <div class="cbs-icon-button">
+        <a class="" ng-click="slidePage('/step3')">
+            返回
+        </a>
+    </div>
+
+    
+    <div class="cbs-icon-button" style="background-color:#ccc;">
+       
+           未结束
+       
+    </div>
+
+    <div class="cbs-icon-button">
+     <a  ng-click="slidePage('/cbsview2')"> 已结束</a>
+    </div>
+    
+    <div class="cbs-icon-button">
+        <a  ng-click="slidePage('/searchteam')">搜索</a>
+    </div>
+ 
+ </div>
+
+<!--
+<div ng-controller="GetGuessScore">
+    <ul class="topcoat-list">
+        <li class="topcoat-list__item" ng-repeat="item in itemsf" ng-click="loadItem(item)">
+            总积分:{{item.usercore}}可用积分:{{item.freecore}}
+            
+        </li>
+    </ul>
+</div>
+
+-->
+
+<div class="GGGpad" ng-controller="GetTeamList1Ctrl">
+<div >
+    <ul class="pp-topcoat-list" >
+        <li class="pp-topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
+            
+        <span style="color: #fff;"> {{item.gameevents}} {{item.date}} {{item.time}}</span>
+         
+         <br>
+            <div>
+                <span><img class="imgl"  onerror="" src="{{item.homeurl}}"> </span><span style="display:block;padding-left:40px;">{{item.hometeam}}</span><div>
+    
+           <div>
+              <span> <img  class="imgl" onerror="" src="{{item.visitingurl}}"> </span><span style="display:block;padding-left:40px;"> {{item.visitingteam}}</span></div>
+    
+        </li>
+    </ul>
+    
+
+</div>
+
+</div>
+</div>
+
+
