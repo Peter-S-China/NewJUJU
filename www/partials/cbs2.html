@@ -2,20 +2,27 @@
 <div class="new-navigation-bar"  ng-controller="HomeCtrl">
     
     
-    <div class="topcoat-navigation-bar__item left quarter">
+    <div class="topcoat-navigation-bar__item">
         <a  ng-click="slidePage('/cbsteamdetail','modal')">
-          返回------继续竞猜
+          返回
         </a>
     </div>
 
-    
+    <div class="topcoat-navigation-bar__item">
+                 完成本次竞猜
+    </div>
 </div>
 
 
-<div class="pad">
-    
-    <div class="new-text-input" >完成本次竞猜<div>
+<div class="pad" >
+    <div class="centerize">
+        <p><a class="topcoat-button--cta" ng-click="alertNotify()">继续竞猜其他比赛</a></p>
+
+    </div>
 </div>
+    
+   
+
 
 
 

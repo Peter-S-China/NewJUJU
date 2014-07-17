@@ -46,6 +46,10 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
              
        $routeProvider.when('/nophoneview', {templateUrl: 'partials/nophone.html', controller: 'HomeCtrl'});
              
+        $routeProvider.when('/nophone_s1', {templateUrl: 'partials/nophone_s1.html', controller: 'HomeCtrl'});     
+             
+       $routeProvider.when('/nophoneview2', {templateUrl: 'partials/nophone2.html', controller: 'HomeCtrl'});
+             
                $routeProvider.when('/nophoneview', {templateUrl: 'partials/nophone.html', controller: 'HomeCtrl'});
              
              

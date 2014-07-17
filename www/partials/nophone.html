@@ -1,19 +1,29 @@
-<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
- 
- <div class="topcoat-navigation-bar__item left quarter">
-     <a class="topcoat-icon-button--quiet" ng-click="slidePage('/inggameview')">
-      <<
-     </a>
- </div>
-    <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title">NoPhone</h1>
-    </div>
- 
-</div>
+<div class="nophonegamebg">
+    
+
+
+
 
 <div class="pad" ng-controller="nophoneGameCtrl">
+    
+    <div  class="nophonebackicon" ng-click="exitnophone()">
+        &nbsp;&nbsp;&nbsp;
+        
+    </div>
+    
+    
     <div class="centerize">
-        <p><a class="topcoat-button--cta" ng-click="alertNotify()">开始</a></p>
+        
+        <p><a class="topcoat-button--cta" ng-click="startgo()">开始</a></p>
+        <p><a class="topcoat-button--cta" ng-click="stopgo()">停止</a></p>
+        <p><a class="topcoat-button--cta" ng-click="npscorelist()">排名查看</a></p>
+        
+        <p><a class="topcoat-button--cta" ng-click="onlinenum()">查看在线人数</a></p>
+
+           <p><a class="topcoat-button--cta" >{{value}}</a></p>
+
 
 </div>
 
+
+</div>

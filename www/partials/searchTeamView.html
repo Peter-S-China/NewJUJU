@@ -1,15 +1,19 @@
 <div class="cbsbgg">
-<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
-    <div class="topcoat-navigation-bar__item left quarter">
-        <a class="topcoat-icon-button--quiet" ng-click="slidePage('/cbsview')">
+
+<div class="new-navigation-bar" ng-controller="HomeCtrl">
+    <div class="new-navigation-bar__item left quarter">
+    <a style="margin-top:10px;"class="new-button" ng-click="slidePage('/cbsview')">
             <
-        </a>
+                </a>
+                </div>
+    <div class="new-navigation-bar__item center half">
+        <h1 class="new-navigation-bar__title">搜索</h1>
     </div>
-    <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title">搜索</h1>
+    <div class="new-navigation-bar__item right quarter">
+        
     </div>
- 
 </div>
+
 
 <div ng-controller="SearchTeamCtrl">
 
@@ -18,20 +22,30 @@
     value=""
     placeholder="搜索球队"
     ng-model="formData.teamname"
-    name="teamname";
-    class="topcoat-search-input">
+    name="teamname"
+    required
+    class="topcoat-search-input"/>
     
+    <div class="cbs-icon-button" ng-click="search()">确定</div>
     
-<a class="topcoat-button--cta" ngclick="searchItem()">确定</a>
-
-<ul class="pp-topcoat-list">
+    <ul class="pp-topcoat-list" >
         <li class="pp-topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
-           {{item.gameevents}} {{item.date}} {{item.time}}
-        </li>
+            
+            <span style="color: #fff;"> {{item.gameevents}} {{item.date}} {{item.time}}</span>
+            
+            <br>
+            <div>
+                <span><img class="imgl"  onerror="" src="{{item.homeurl}}"> </span><span style="display:block;padding-left:40px;">{{item.hometeam}}</span><div>
+                    
+                    <div>
+                        <span> <img  class="imgl" onerror="" src="{{item.visitingurl}}"> </span><span style="display:block;padding-left:40px;"> {{item.visitingteam}}</span></div>
+                    
+                    </li>
     </ul>
 
-
+    
 </div>
+
 
 
 

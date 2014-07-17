@@ -36,6 +36,7 @@ body {
   font-weight: 200;
   text-rendering: optimizeLegibility;
   overflow: hidden;
+  -webkit-user-select:none;
 }
 
 .topcoat-icon--menu-stack {
@@ -1616,6 +1617,7 @@ Navigation Bar
   display:block;
   margin-left:100px;
 }
+
 .dmxagicon{
 
   padding: 0;
@@ -1777,4 +1779,28 @@ Navigation Bar
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
+}
+
+
+.nophonegamebg{
+  margin: 0;
+  padding: 0;
+  background: url("../img/nophonebg.png") repeat-x;
+  color: #FFF;
+  font: 16px "Source Sans", helvetica, arial, sans-serif;
+  font-weight: 200;
+  text-rendering: optimizeLegibility;
+  width:320px;
+  height:660px;
+
+}
+
+.nophonebackicon{
+
+  margin:10px;
+  padding: 0;
+  background-image: url("../img/nophoneback.png");
+  height:26px;
+  width:42px;
+
 }
