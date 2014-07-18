@@ -1074,9 +1074,11 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
      
      }
     
+    var stopurl= g_baseurl +'/JujuDemo/servlet/Getnophonecover?id='+g_userid+'&gamehomenum='+localStorage.g_gamenum+'&nophonecover=';
+    
     $scope.stopgo=function(){
         
-        console.log("stop");
+        console.log("参与者stop");
         $timeout.cancel($scope.timeout);
         console.log("您用了[" + $scope.value + "]秒");
         stopurl +=  $scope.value;
@@ -1251,7 +1253,7 @@ function SearchTeamCtrl($scope, $rootScope,$location) {
     
     
 }
-
+//----------nophone游戏参与者--------------------------------
 function nophoneGameCtrl2($scope,$timeout,$rootScope,$location){
     
     
@@ -1261,11 +1263,11 @@ function nophoneGameCtrl2($scope,$timeout,$rootScope,$location){
     
     console.log("等待开始状态URL" + waiturl);
     
-    $scope.value=0;
+    $scope.value = 1;
     
     function countdown2() {
         $scope.value++;
-        $scope.timeout = $timeout(countdown, 1000);
+        $scope.timeout = $timeout(countdown2, 1000);
     }
     
     function countdown() {
@@ -1301,13 +1303,61 @@ function nophoneGameCtrl2($scope,$timeout,$rootScope,$location){
         //setInterval(function(){console.log('haha')},1000);
         countdown();
         
-        
-        
-       
-        
     }
     
     $scope.waiting();
+    
+    var stopurl= g_baseurl +'/JujuDemo/servlet/Getnophonecover?id='+g_userid+'&gamehomenum='+localStorage.g_gamenum+'&nophonecover=';
+    
+    $scope.stopgo = function(){
+        
+        console.log("stop");
+        $timeout.cancel($scope.timeout);
+        console.log("您用了[" + $scope.value + "]秒");
+        stopurl +=  $scope.value;
+        console.log("--参与者nophone停止按钮上传数据-->>" + stopurl);
+        
+        $rootScope.items = null;
+        if (!$rootScope.items) {
+            
+            jx.load(stopurl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.cerateresult;
+                    $scope.$apply();
+                    },'json');
+        } else {
+            console.log('data already loaded');
+        }
+        
+        
+        
+        
+    }
+    
+     var npscorelisturl = g_baseurl +'/JujuDemo/servlet/Sendnophonecover?gamehomenum='+ localStorage.g_gamenum;
+    
+    $scope.npscorelist = function(){
+        
+        console.log("最终排名");
+        
+        console.log("排名" + npscorelisturl);
+        
+        $rootScope.items = null;
+        if (!$rootScope.items) {
+            
+            jx.load(npscorelisturl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.item16;
+                    $scope.$apply();
+                    },'json');
+        } else {
+            console.log('data already loaded');
+        }
+        
+        
+        
+    }
+
 
     $scope.exitnophone = function() {
         
