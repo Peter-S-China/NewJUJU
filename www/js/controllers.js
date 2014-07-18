@@ -521,7 +521,7 @@ function SendAnonymousMessageCtrl($scope, $rootScope,$location){
         
         $scope.message ="匿名消息不能为空";
         
-        }else if($scope.formData.s_message.length > 30){
+        }else if($scope.formData.s_message.length > 20){
         
              $scope.message ="能少打点字么";
         
@@ -860,10 +860,7 @@ function getdmxCtrl($scope,$rootScope,$location){
 
 function createNewGameCtrl($scope,$rootScope,$location){
 
-    
-        
-        
-    $scope.getNewGameNum = function() {
+      $scope.getNewGameNum = function() {
     
         $rootScope.items = null;
         // load in data from hacker news unless we already have
@@ -1010,38 +1007,24 @@ function ingGameListCtrl($scope,$rootScope,$location){
     }
     
 }
-
-
+//------------NOPHONE游戏创建者操作相关方法------
 
 function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
     
     console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
     console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
     
+    $scope.g_gamenum = localStorage.g_gamenum;
+    
     var exurl= g_baseurl +'/JujuDemo/servlet/Exitgamehome?id='+g_userid+'&gamehomenum='+ localStorage.g_gamenum;
-    
     console.log("--退出房间调用的方法-->>" + exurl);
-    
     var onurl = g_baseurl +'/JujuDemo/servlet/Personnum?gamehomenum='+localStorage.g_gamenum;
-    
     console.log("--获取在线用户人数方法-->>" + onurl);
-    
     var starturl= g_baseurl +'/JujuDemo/servlet/Getnophoneflag?gamehomenum='+localStorage.g_gamenum +'&nophoneflag=1';
-    
-    
     console.log("--桌主nophone开始按钮上传数据-->>" + starturl);
-    
-    
-    
     var npscorelisturl = g_baseurl +'/JujuDemo/servlet/Sendnophonecover?gamehomenum='+ localStorage.g_gamenum +'&sum=';
-    
-    
-    
-    
     $scope.value = 0;
-    
     var stopurl= g_baseurl +'/JujuDemo/servlet/Getnophonecover?id='+g_userid+'&gamehomenum='+localStorage.g_gamenum+'&nophonecover=';
-    
     
     function countdown() {
         $scope.value++;
@@ -1049,10 +1032,8 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
     }
     
     $scope.startgo = function(){
-    
         console.log("start");
         countdown();
-        
         $rootScope.items = null;
         // load in data from hacker news unless we already have
         
@@ -1066,19 +1047,21 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
                     
                     console.log("排名" + npscorelisturl);
                     
-                    $scope.$apply();
+                    
                     },'json');
         } else {
             console.log('data already loaded');
         }
-     
-     }
+        
+        //$location.path("/nophone_s1");
+        
+    }
     
     var stopurl= g_baseurl +'/JujuDemo/servlet/Getnophonecover?id='+g_userid+'&gamehomenum='+localStorage.g_gamenum+'&nophonecover=';
     
     $scope.stopgo=function(){
         
-        console.log("参与者stop");
+        console.log("桌主stop");
         $timeout.cancel($scope.timeout);
         console.log("您用了[" + $scope.value + "]秒");
         stopurl +=  $scope.value;
@@ -1095,15 +1078,14 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
         } else {
             console.log('data already loaded');
         }
-
         
         
-
+        
+        
     }
     
     $scope.npscorelist = function(){
-       
-        console.log("最终排名");
+        
         
         console.log("排名" + npscorelisturl);
         
@@ -1118,9 +1100,9 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
         } else {
             console.log('data already loaded');
         }
-
         
-    
+        
+        
     }
     
     $scope.onlinenum = function(){
@@ -1133,17 +1115,18 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
             jx.load(onurl,function(data){
                     console.log(JSON.stringify(data));
                     $rootScope.items = data.personsum;
+                    $scope.pmessage = data.personsum;
                     $scope.$apply();
                     },'json');
         } else {
             console.log('data already loaded');
         }
-
+        
     }
     
     $scope.exitnophone = function() {
         
-     $rootScope.items=null;
+        $rootScope.items=null;
         // load in data from hacker news unless we already have
         if (!$rootScope.items) {
             
@@ -1159,34 +1142,37 @@ function nophoneGameCtrl($scope,$timeout,$rootScope,$location){
         }
         
         
-         $location.path("/step3");
+        $location.path("/step3");
     }
     
-   /*
-    $scope.test = function() {
-        setInterval(function(){console.log('haha')},1000); }
-    
-    $scope.test(); 
-    
-    
-    //var p = $timeout(function(){console.log('haha')},5000);
-    
-    //p.then(function(){console.log('x')});
-    
-    //$timeout.cancel(p);
-    
-    $scope.test = function() {
-    setTimeout(function () {
-    $scope.$apply(function () {
-    $scope.user = "good";
-    });
-    }, 2000);
-    }
-    */
+    /*
+     $scope.test = function() {
+     setInterval(function(){console.log('haha')},1000); }
+     
+     $scope.test();
+     
+     
+     //var p = $timeout(function(){console.log('haha')},5000);
+     
+     //p.then(function(){console.log('x')});
+     
+     //$timeout.cancel(p);
+     
+     $scope.test = function() {
+     setTimeout(function () {
+     $scope.$apply(function () {
+     $scope.user = "good";
+     });
+     }, 2000);
+     }
+     */
     
     
     
 }
+
+
+
 
 function autoGoCtrl($scope,$timeout,$location){
     
@@ -1226,7 +1212,7 @@ function SearchTeamCtrl($scope, $rootScope,$location) {
           $rootScope.items= null;
         if (!$rootScope.items) {
            
-            var ssurl = g_baseurl+'/JujuDemo/servlet/Serchballgame?teamname='+$scope.formData.teamname;
+            var ssurl = g_baseurl+'/JujuDemo/servlet/Serchballgame?teamname='+$scope.formData.teamname+'&isbegin=1';
             
             console.log(ssurl);
             
@@ -1253,6 +1239,47 @@ function SearchTeamCtrl($scope, $rootScope,$location) {
     
     
 }
+
+
+function SearchTeamCtrl2($scope, $rootScope,$location) {
+    
+    console.log('获取球队列表信息');
+    console.log('---用户名---'+ g_userid);
+    console.log('---房间号---'+ g_homenum);
+    $scope.formData = {};
+    
+    $scope.search = function(){
+        
+        console.log(">>"+ $scope.formData.teamname);
+        $rootScope.items= null;
+        if (!$rootScope.items) {
+            
+            var ssurl = g_baseurl+'/JujuDemo/servlet/Serchballgame?teamname='+$scope.formData.teamname+'&isbegin=0';
+            
+            console.log(ssurl);
+            
+            jx.load(ssurl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.item7;
+                    $scope.$apply();
+                    },'json');
+            
+        } else {
+            console.log('获取比赛列表失败');
+        }
+    }
+    
+    $scope.loadItem = function(item) {
+        g_againstid = item.againstid;
+        console.log('获取球队得>>>againstid<<<<'+ g_againstid);
+       
+        
+    };
+    
+    
+    
+}
+
 //----------nophone游戏参与者--------------------------------
 function nophoneGameCtrl2($scope,$timeout,$rootScope,$location){
     
@@ -1382,3 +1409,6 @@ function nophoneGameCtrl2($scope,$timeout,$rootScope,$location){
 
 
 }
+
+
+

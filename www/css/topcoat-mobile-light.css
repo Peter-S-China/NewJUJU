@@ -969,8 +969,8 @@ Icon Group
 .topcoat-button-cbs{
   background-repeat:no-repeat;
   background-image: url(../img/icons/cbs.png);
-  height:90px;
-  width:90px;
+  height:70px;
+  width:70px;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -979,8 +979,8 @@ Icon Group
 .topcoat-button-dmx{
   background-repeat:no-repeat;
   background-image: url(../img/icons/dmx.png);
-  height:90px;
-  width:90px;
+  height:70px;
+  width:70px;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -990,8 +990,8 @@ Icon Group
 .topcoat-button-nophone{
   background-repeat:no-repeat;
   background-image: url(../img/icons/np.png);
-  height:90px;
-  width:90px;
+  height:70px;
+  width:70px;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -1797,10 +1797,34 @@ Navigation Bar
 
 .nophonebackicon{
 
-  margin:10px;
-  padding: 0;
+  margin: 0;
+  padding: 0px;
   background-image: url("../img/nophoneback.png");
+  background-repeat: no-repeat;
   height:26px;
   width:42px;
 
+
 }
+.nophonepic1{
+ background-image: url("../img/nophone/nophone1.png");
+ background-repeat: no-repeat;
+ height:137px;
+ width:185px;
+ display:block;
+ margin-left:70px;
+ margin-top:-30px;
+
+}
+
+.nophonepic2{
+ background-image: url("../img/nophone/smoke.png");
+ background-repeat: no-repeat;
+ height:177px;
+ width:177px;
+ display:block;
+ margin-left:70px;
+
+}
+
+
