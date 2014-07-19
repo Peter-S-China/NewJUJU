@@ -1,8 +1,22 @@
 <div class="nophonegamebg" ng-controller="nophonestep3Ctrl">
+<div  class="nophonebackicon" ng-click="exitnophone()">
+        &nbsp;&nbsp;&nbsp;
+    </div>
+<div class="nophonemain" >
+    
 
+
+    
+    <div  class="nophonepic2" >
+        &nbsp;&nbsp;&nbsp;
+    </div>
+    
+</div>
+<h3 class="topcoat-list__header">NOPHONE成绩排名</h3>
  <ul class="topcoat-list">
     <li class="topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
-        {{item.username}} {{item.nophonecover}}
+       <h3 class="topcoat-list__header"> {{item.username}} </h3>
+       <h3 class="topcoat-list__header">{{item.nophonecover}}秒</h3>
     </li>
  </ul>
 

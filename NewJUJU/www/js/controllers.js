@@ -131,7 +131,7 @@ var g_againstid;
 var g_score;
 var g_gamename;
 var g_gamenum;
-var g_baseurl='http://10.0.0.77:8080';
+var g_baseurl='http://124.127.127.186:8080';
 
 //-----------------------------
 
@@ -954,9 +954,18 @@ function ingGameListCtrl($scope,$rootScope,$location){
         }
 
         $scope.joinGame = function(item) {
+            
+            
+            
         console.log("用户名" + localStorage.j_username);
         console.log("游戏名"+ g_gamename);
         console.log("游戏编号"+ item.tablenum);
+            if(!item.tablenum){
+            
+                
+            
+            }else{
+        
         localStorage.g_gamenum = item.tablenum;
         var cngurl=g_baseurl+'/JujuDemo/servlet/GameUserinfo?id='+localStorage.j_username +'&gameuserid=0&gamehomenum='+ item.tablenum +'&gamename='+g_gamename+'&homenum='+g_homenum+'&isgameover=0';
         
@@ -982,7 +991,7 @@ function ingGameListCtrl($scope,$rootScope,$location){
         } else {
             console.log('data already loaded');
         }
-
+            }
     }
     
 }
@@ -1371,7 +1380,7 @@ function SearchTeamCtrl($scope, $rootScope,$location) {
           $rootScope.items= null;
         if (!$rootScope.items) {
            
-            var ssurl = g_baseurl+'/JujuDemo/servlet/Serchballgame?teamname='+$scope.formData.teamname;
+            var ssurl = g_baseurl+'/JujuDemo/servlet/Serchballgame?teamname='+$scope.formData.teamname+'&isbegin=1';
             
             console.log(ssurl);
             

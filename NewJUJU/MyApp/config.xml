@@ -35,9 +35,9 @@
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="TopActivityIndicator" value="gray" />
-   <!-- <preference name="WebViewBounce" value="false" />-->
-   <!-- <preference name="DisallowOverscroll" value="true" />-->
-
+    <preference name="WebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    
     <content src="./index.html" />
 
     <plugins>

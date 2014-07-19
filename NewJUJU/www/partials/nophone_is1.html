@@ -1,16 +1,20 @@
-<div class="nophonegamebg">
-
-    <iframe src="partials/nophone/example.html" width="320" height="200" scrolling="no" frameborder="0" style="margin-top:40px;"></iframe>
+<div class="nophonegamebg" ng-controller="nophonestep2Ctrl">
+<div class="nophonemain">
     
+    <div  class="nophonepic1" >
+        &nbsp;&nbsp;&nbsp;
+    </div>
+    <div  class="nophonepic2" >
+        &nbsp;&nbsp;&nbsp;
+    </div>
+<iframe src="partials/nophone/example.html" width="320" height="80" scrolling="no" frameborder="0"></iframe>
 
-<div class="pad" ng-controller="nophonestep2Ctrl">
-
-<p><a class="topcoat-button--cta" >{{message}}</a></p>
-
-<a class="topcoat-button--cta" ng-click="stopgo()">停止</a>
-
-<p><a class="topcoat-button--cta" >{{value}}</a></p>
-
+ <div class="npbottomNav">
+     
+        <a  class="np-button--bg" ng-click="startgo()"><a style="margin-left:100px;"class="np-button--icon2" ng-click="stopgo()"></a></a><br><br>
+        
+    </div>
 
 </div>
+
 </div>
