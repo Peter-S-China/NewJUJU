@@ -1,0 +1,41 @@
+<div class="cbsbgg">
+    
+    <div style="margin:18px;">
+        <div class="cbs-icon-button">
+            <a class="" ng-click="slidePage('/step3')">
+                返回
+            </a>
+        </div>
+        
+        
+        <div class="cbs-icon-button" >
+          <a  ng-click="slidePage('/cbsview')">
+            未结束
+           </a>
+        </div>
+        
+        <div class="cbs-icon-button" style="background-color:#ccc;">
+             已结束
+        </div>
+    </div>
+
+
+
+
+<div class="GGGpad"  ng-controller="GetTeamList2Ctrl">
+    <ul class="pp-topcoat-list">
+        <li class="pp-topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
+            
+         {{item.gameevents}} {{item.date}} {{item.time}}<br>
+         
+         {{item.hometeam}}
+  
+         {{item.visitingteam}}<br>
+         
+         {{item.gameoutcome}}
+        </li>
+    </ul>
+</div>
+</div>
+
+<ng-include src="'partials/settingsOverlay.html'"></ng-include>
