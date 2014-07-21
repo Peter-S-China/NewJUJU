@@ -148,9 +148,9 @@ function GetCodesCtrl($scope, $rootScope,$location) {
                 g_userid = $rootScope.items.id;
                 
                 console.log("------用户编号-------" + g_userid);
-                
                 localStorage.j_username = g_userid;
-                console.log("------>用户编号<-------" + localStorage.j_username);
+                
+                console.log("------成功登陆房间------用户编号-------" + localStorage.j_username);
                 
                 $scope.$apply();
                 },'json');
@@ -440,19 +440,8 @@ function LoginRoomCtrl($scope){
 }
 
 function LoginCtrl($scope,$location,$rootScope) {
-  /*
-    if(!localStorage.j_username){
-     console.log(">>>>>>>" + localStorage.j_username);
-        
-    }else{
-    
-        console.log(">>>>>>>" + localStorage.j_username);
-        $location.path( "/step2" );
-    }
-*/
- 
-        
-        if (!$rootScope.items) {
+     
+   if (!$rootScope.items) {
             
             jx.load(g_baseurl+'/JujuDemo/servlet/sendnum?username=139',function(data){
                     console.log(JSON.stringify(data));
@@ -460,7 +449,8 @@ function LoginCtrl($scope,$location,$rootScope) {
                     
                     g_codenum = $rootScope.items.result;
                     
-                    console.log("------codenum-------" + g_codenum);
+                    console.log("------成功获取验证码------codenum-------" + g_codenum);
+                    
                     $scope.$apply();
                     },'json');
             
