@@ -83,6 +83,14 @@
     background-size: cover;
 }
 
+.dice-back-icon{
+     
+    background: url("../img/home2.svg") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+     ;
+}
+
 .settings-icon {
     background: url("../img/settings_light.svg") no-repeat;
     -webkit-background-size: cover;

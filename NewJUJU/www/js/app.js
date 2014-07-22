@@ -60,7 +60,12 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
      $routeProvider.when('/jgchview3', {templateUrl: 'partials/jgchview3.html', controller: 'HomeCtrl'});
              
        $routeProvider.when('/jgchview4', {templateUrl: 'partials/jgchview4.html', controller: 'HomeCtrl'});
+    
+    $routeProvider.when('/diceview', {templateUrl: 'partials/diceview.html', controller: 'HomeCtrl'});
              
+      $routeProvider.when('/diceviewc1', {templateUrl: 'partials/diceviewc1.html', controller: 'HomeCtrl'});
+             
+     $routeProvider.when('/diceviewc2', {templateUrl: 'partials/diceviewc2.html', controller: 'HomeCtrl'});
              
              
            $routeProvider.when('/flatview', {templateUrl: 'partials/flatview.html', controller: 'HomeCtrl'});  

@@ -1,0 +1,33 @@
+<div  class="dice-list__container list" >
+    <div class="dice-navigation-bar">
+        
+     
+    </div>
+
+
+     <div class="dice-menup-bar" ng-controller="diceGamesetup2Ctrl">
+         
+          <div style ="margin:20px;">
+              &nbsp;&nbsp;
+          </div>
+        
+             <div style ="margin:20px;"  ng-repeat="item in items">
+                 {{item.username}}
+             </div>
+    </div>
+
+
+
+<div class="dice-menu-bar-start">
+   
+    
+    <div class="dice-menu-bar-btn" ng-click="slidePage('/diceviewc2')">
+        &nbsp;&nbsp;
+        
+    </div>
+    
+</div>
+
+</div>
+
+<ng-include src="'partials/settingsOverlay.html'"></ng-include>

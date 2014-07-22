@@ -636,9 +636,9 @@ limitations under the License.
   user-select: none;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-
   background-color: #dfe2e2;
 }
+
 .topcoat-list__header {
   margin: 0;
   padding: 4px 20px;
@@ -1011,6 +1011,20 @@ Icon Group
   float:left;
   margin-left:4px;
 }
+
+
+.topcoat-button-dice{
+  background-repeat:no-repeat;
+  background-image: url(../img/icons/dice.png);
+  height:auto;
+  width:70px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  float:left;
+  margin-left:4px;
+}
+
 
 .loginpage{
   margin: 0;
@@ -1859,6 +1873,7 @@ Navigation Bar
   display:block;
 }
 .npbottomNav{
+
 z-index:999; 
 position:fixed; 
 bottom:0; 
@@ -1911,3 +1926,136 @@ text-align:center;
   box-shadow: inset 0 1px rgba(0,0,0,0.12);
 }
 
+
+
+.dice-navigation-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: nowrap;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+  border: none;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 80px;
+  width:320px;
+
+  background-image: url("../img/dice/dicetop.png");
+
+  color: #fff;
+
+  z-index:100;
+  
+  position:fixed;
+  top:0;
+  left:0;
+
+}
+
+
+.dice-list__container{
+
+  z-index:1;
+  background-image: url("../img/dice/dicebg.png");
+  font: inherit;
+  color: inherit;
+  border: none;
+  user-select: none;
+  height: 568px;
+  color: #fff;
+  position:fixed; 
+  bottom:0; 
+  overflow:auto;
+}
+
+.dice-menu-bar{
+
+  background-image: url("../img/dice/choicgame.png");
+  font: inherit;
+  color: inherit;
+  border: none;
+  user-select: none;
+  height: 207px;
+  width:191px;
+  color: #fff;
+  margin-top:80px;
+  margin-left:65px;
+
+
+}
+
+.cnn-menu-bar{
+
+  background-repeat: no-repeat;
+  background-image: url("../img/dice/cnn.png");
+  font: inherit;
+  color: inherit;
+  border: none;
+  user-select: none;
+  height: 34px;
+  width:138px;
+  color: #fff;
+  margin-left:28px;
+  dispaly:block;
+  margin-top:28px;
+
+}
+
+.bdx-menu-bar{
+  background-image: url("../img/dice/bdx.png");
+  font: inherit;
+  color: inherit;
+  border: none;
+  user-select: none;
+  height: 34px;
+  width:138px;
+  color: #fff;
+  margin-left:28px;
+  margin-top:30px;
+  dispaly:block;
+}
+
+.dice-menup-bar{
+  background-image: url("../img/dice/people.png");
+  font: inherit;
+  color: inherit;
+  border: none;
+  user-select: none;
+  height: 290px;
+  width:192px;
+  color: #fff;
+  margin-top:80px;
+  margin-left:65px;
+
+}
+
+.dice-menu-bar-start{
+  background-image: url("../img/dice/roll.png");
+  background-repeat: no-repeat;
+  z-index:999;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:115px;
+
+}
+
+.dice-menu-bar-btn{
+  background-image: url("../img/dice/playgo.png");
+  background-repeat: no-repeat;
+
+  position:fixed;
+  bottom:0;
+  width:170px;
+  height:40px;
+  left:90px;
+}

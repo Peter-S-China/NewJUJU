@@ -368,6 +368,14 @@ function NavtoGameCtrl($scope,$rootScope,$location) {
         
     }
     
+    $scope.gotodice = function(){
+        
+        g_gamename="dice";
+        
+        $location.path("/inggameview");
+        
+    }
+    
     
     
 }
@@ -921,9 +929,13 @@ function createNewGameCtrl($scope,$rootScope,$location){
     
         $location.path("/nophoneview");
         
-        if(g_gamename='jgch'){
+        if(g_gamename == 'jgch'){
         
         $location.path("/jgchview");
+        
+        }else if(g_gamename == 'dice'){
+        
+         $location.path("/diceview");
         
         }
     }
@@ -1738,5 +1750,112 @@ function jgchstep2GameCtrl($scope,$timeout,$rootScope,$location){
 function jgchstep3GameCtrl($scope,$rootScope,$location){
 
    console.log('你赢了');
+
+}
+
+//------摇骰子游戏创建者初始化游戏设置步骤1------
+
+function diceGamesetupCtrl($scope,$rootScope,$location){
+    
+         console.log('摇骰子游戏开始');
+
+}
+
+
+//------摇骰子游戏创建者初始化游戏设置步骤2------
+
+function diceGamesetup2Ctrl($scope,$rootScope,$location){
+    
+    console.log('吹牛查看人数');
+    console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
+    console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
+    
+    $scope.onlinep = function(){
+    
+    var diceurl = g_baseurl + '/JujuDemo/servlet/Personnum?gamehomenum='+localStorage.g_gamenum;
+    
+    console.log('吹牛查看人数URL>>>>>>' + diceurl);
+    
+    $rootScope.items=null;
+    if (!$rootScope.items) {
+        jx.load(diceurl,function(data){
+                console.log(JSON.stringify(data));
+                $rootScope.items = data.item17;
+                $scope.$apply();
+                
+                },'json');
+        
+    } else {
+        console.log('data already loaded');
+    }
+    
+    }
+    
+
+    
+    $scope.onlinep();
+}
+
+function diceGamesetup3Ctrl($scope,$rootScope,$location){
+    
+    console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
+    console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
+    
+    $scope.cnstart = function(){
+    var cuurl = g_baseurl + '/JujuDemo/servlet/GetbosonsNum?gamehomenum='+localStorage.g_gamenum +'&bosonsnum=6';
+    
+    $rootScope.items=null;
+    if (!$rootScope.items) {
+        jx.load(cuurl,function(data){
+                console.log(JSON.stringify(data));
+                $rootScope.items = data.item17;
+                $scope.$apply();
+                
+                },'json');
+        
+    } else {
+        console.log('data already loaded');
+    }
+    
+    }
+    
+    $scope.cnstart();
+    
+    $scope.value1 = Math.floor(Math.random()*6+1);
+    $scope.value2 = Math.floor(Math.random()*6+1);
+    $scope.value3 = Math.floor(Math.random()*6+1);
+    $scope.value4 = Math.floor(Math.random()*6+1);
+    $scope.value5 = Math.floor(Math.random()*6+1);
+    $scope.value6 = Math.floor(Math.random()*6+1);
+    
+    $scope.alvalue = $scope.value1+','+$scope.value2+','+$scope.value3+','+$scope.value4+','+$scope.value5+','+$scope.value6;
+    
+    console.log('吹牛骰子随机数bosonscover=' + $scope.alvalue);
+
+    
+    var sdurl= g_baseurl + '/JujuDemo/servlet/GetbosonsCover?gamehomenum='+localStorage.g_gamenum + '&bosonscover='+ $scope.alvalue +'&userid='+g_userid;
+    
+    console.log('发送随机骰子数目' + sdurl);
+    
+    $scope.senddicenum = function(){
+        
+    
+        $rootScope.items=null;
+        if (!$rootScope.items) {
+            jx.load(sdurl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.item17;
+                    $scope.$apply();
+                    
+                    },'json');
+            
+        } else {
+            console.log('data already loaded');
+        }
+        
+   
+    }
+    
+    
 
 }
