@@ -129,9 +129,11 @@ var g_userid;
 var g_homenum;
 var g_againstid;
 var g_score;
+var g_value = 0;
 var g_gamename;
 var g_gamenum;
 var g_baseurl='http://124.127.127.186:8080';
+
 
 //-----------------------------
 
@@ -1633,7 +1635,8 @@ function jgchstep1GameCtrl1($scope,$timeout,$rootScope,$location){
     }
 }
 
-//------游戏参与者准备开始击鼓传花游戏------
+
+//------游戏参与者等待开始击鼓传花游戏------
 function jgchstep1GameCtrl2($scope,$timeout,$rootScope,$location){
     
     console.log(">>>>>>参与者击鼓传花游戏准备开始<<<<<<");
@@ -1643,44 +1646,40 @@ function jgchstep1GameCtrl2($scope,$timeout,$rootScope,$location){
     var jgchurl = g_baseurl + '/JujuDemo/servlet/Senddrumflowerinfo?gamehomenum='+localStorage.g_gamenum+'&istimeover=2&gameuserid=1&id='+g_userid;
     
     console.log(jgchurl);
-    
     $scope.isplay;
-
+    
+    var g_timer;
+    
     $scope.waiting =function(){
         
-        setInterval(function(){
-                    
-                    $scope.Getgameinfo();
-                    console.log('xxxxxxxxxx' + $scope.isplay);
-                    
-                    if($scope.isplay == g_userid){
-                    
-                    console.log('PPPPPP');
-                    
-                    $location.path("/jgchview3");
-                    
-                    }
-
-                    
-                 },1000);
+     g_timer = setInterval(function(){$scope.Getgameinfo();},1000);
         
-        
-    
     }
     
     $scope.Getgameinfo = function(){
-        $rootScope.items=null;
+        
+    $rootScope.items=null;
+        
         if (!$rootScope.items) {
             jx.load(jgchurl,function(data){
                     console.log(JSON.stringify(data));
                     $rootScope.items = data.cerateresult;
-                    
                     $scope.isplay = data.randomid;
-        
-            console.log("游戏状态>>>1开始>>>0未开始>>>>"+ $scope.isplay);
-                   
-                    $scope.$apply();
+       
+        console.log("游戏状态>>>1开始>>>0未开始>>>>"+ $scope.isplay);
                     
+                    if($scope.isplay == g_userid){
+                    
+                     //console.log('PPPPPP' + $scope.isplay);
+                   
+                     clearInterval(g_timer);
+                    
+                     $location.path("/jgchview3");
+                    
+                    }
+                   
+        
+                    $scope.$apply();
                     },'json');
             
         } else {
@@ -1688,22 +1687,56 @@ function jgchstep1GameCtrl2($scope,$timeout,$rootScope,$location){
         }
    }
     
-    $scope.waiting();
+     $scope.waiting();
 
 }
 
 function jgchstep2GameCtrl($scope,$timeout,$rootScope,$location){
     
-    
-    console.log(">>>>>>参与者击鼓传花游戏准备开始<<<<<<");
+    console.log(">>>>>>参与者击鼓传花传起来<<<<<<");
     console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
     console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
     
     var jgchurl = g_baseurl + '/JujuDemo/servlet/Senddrumflowerinfo?gamehomenum='+localStorage.g_gamenum+'&istimeover=3&gameuserid=1&id='+g_userid;
+     console.log(jgchurl);
     
-    console.log(jgchurl);
-
     
+    $scope.stopvalue = Math.floor(Math.random()*10);
+    console.log('<<<<<<随机数字>>>>>>'+ $scope.stopvalue);
+    
+    $scope.gogogo = function(){
+        
+        
+        if($scope.stopvalue == 2){
+        
+        // navigator.notification.alert("Alert",function() {console.log("Alert success")},"you got it","Close");
+            
+          $location.path("/jgchview4");
+        
+        }else{
+        
+        $rootScope.items=null;
+        if (!$rootScope.items) {
+            jx.load(jgchurl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.randomid;
+                    $scope.$apply();
+                    
+                    },'json');
+            
+        } else {
+            console.log('data already loaded');
+        }
+    
+        $location.path("/jgchview2");
+            
+        }
+     }
+}
 
+
+function jgchstep3GameCtrl($scope,$rootScope,$location){
+
+   console.log('你赢了');
 
 }
