@@ -967,33 +967,49 @@ Icon Group
 .topcoat-button-cbs{
   background-repeat:no-repeat;
   background-image: url(../img/icons/cbs.png);
-  height:70px;
+  height:auto;
   width:70px;
   display: block;
-  margin: 0 auto;
   text-align: center;
- 
+  float:left;
+  margin-left:2px;
+
 }
 .topcoat-button-dmx{
   background-repeat:no-repeat;
   background-image: url(../img/icons/dmx.png);
-  height:70px;
+  height:auto;
   width:70px;
   display: block;
   margin: 0 auto;
   text-align: center;
+  float:left;
+  margin-left:4px;
 
 }
 
 .topcoat-button-nophone{
   background-repeat:no-repeat;
   background-image: url(../img/icons/np.png);
-  height:70px;
+  height:auto;
   width:70px;
   display: block;
   margin: 0 auto;
   text-align: center;
+  float:left;
+  margin-left:4px;
+}
 
+.topcoat-button-jgch{
+  background-repeat:no-repeat;
+  background-image: url(../img/icons/jgch.png);
+  height:auto;
+  width:70px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  float:left;
+  margin-left:4px;
 }
 
 .loginpage{
@@ -1297,10 +1313,16 @@ Navigation Bar
   text-align: center;
 }
 .gameiconarea{
- margin:5px;
- text-align: center;
- width:90px;
+
  margin-top:10px;
+ margin-left:10px;
+ text-align: center;
+ width:309px;
+ height:300px;
+ margin-top:10px;
+ overflow: auto;
+
+ 
 
 }
 

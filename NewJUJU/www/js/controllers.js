@@ -355,9 +355,15 @@ function NavtoGameCtrl($scope,$rootScope,$location) {
         g_gamename="nophone";
         
         $location.path("/inggameview");
+   
+    }
+    
+    $scope.gotojgch = function(){
         
-    
-    
+        g_gamename="jgch";
+        
+        $location.path("/inggameview");
+        
     }
     
     
@@ -912,7 +918,12 @@ function createNewGameCtrl($scope,$rootScope,$location){
     
     
         $location.path("/nophoneview");
-
+        
+        if(g_gamename='jgch'){
+        
+        $location.path("/jgchview");
+        
+        }
     }
 
 
@@ -972,7 +983,13 @@ function ingGameListCtrl($scope,$rootScope,$location){
                     
                     if($rootScope.itemscn=1){
                     
-                    $location.path("/nophoneview2");
+                      $location.path("/nophoneview2");
+                    
+                    if(g_gamename='jgch'){
+                    
+                       $location.path("/jgchview2");
+                     }
+                    
                     
                     }
                     $scope.$apply();
@@ -1420,6 +1437,7 @@ function nophonestep1GameCtrl2($scope,$timeout,$rootScope,$location){
                     $timeout.cancel($scope.timeout);
                     
                     $location.path("/nophone_is1");
+                    
                     }
                     
                     
@@ -1579,3 +1597,113 @@ function nophoneGameCtrl2($scope,$timeout,$rootScope,$location){
 
 }
 */
+//------游戏建立者准备开始击鼓传花游戏------
+function jgchstep1GameCtrl1($scope,$timeout,$rootScope,$location){
+    
+    console.log(">>>>>>击鼓传花游戏准备开始<<<<<<");
+    console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
+    console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
+
+    var jgchurl = g_baseurl + '/JujuDemo/servlet/Senddrumflowerinfo?gamehomenum='+localStorage.g_gamenum+'&istimeover=1&gameuserid=1&id='+g_userid;
+    
+    
+    
+    $scope.startgo = function(){
+    
+    console.log(">>>>>>游戏建立者击鼓传花游戏步骤1<<<<<<");
+    console.log(jgchurl);
+        
+        $rootScope.items=null;
+        // load in data from hacker news unless we already have
+        if (!$rootScope.items) {
+            
+            jx.load(jgchurl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.exitresult;
+                    
+                    $scope.$apply();
+                    },'json');
+            
+        } else {
+            console.log('data already loaded');
+        }
+    
+         $location.path("/jgchview2");
+    
+    }
+}
+
+//------游戏参与者准备开始击鼓传花游戏------
+function jgchstep1GameCtrl2($scope,$timeout,$rootScope,$location){
+    
+    console.log(">>>>>>参与者击鼓传花游戏准备开始<<<<<<");
+    console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
+    console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
+    
+    var jgchurl = g_baseurl + '/JujuDemo/servlet/Senddrumflowerinfo?gamehomenum='+localStorage.g_gamenum+'&istimeover=2&gameuserid=1&id='+g_userid;
+    
+    console.log(jgchurl);
+    
+    $scope.isplay;
+
+    $scope.waiting =function(){
+        
+        setInterval(function(){
+                    
+                    $scope.Getgameinfo();
+                    console.log('xxxxxxxxxx' + $scope.isplay);
+                    
+                    if($scope.isplay == g_userid){
+                    
+                    console.log('PPPPPP');
+                    
+                    $location.path("/jgchview3");
+                    
+                    }
+
+                    
+                 },1000);
+        
+        
+    
+    }
+    
+    $scope.Getgameinfo = function(){
+        $rootScope.items=null;
+        if (!$rootScope.items) {
+            jx.load(jgchurl,function(data){
+                    console.log(JSON.stringify(data));
+                    $rootScope.items = data.cerateresult;
+                    
+                    $scope.isplay = data.randomid;
+        
+            console.log("游戏状态>>>1开始>>>0未开始>>>>"+ $scope.isplay);
+                   
+                    $scope.$apply();
+                    
+                    },'json');
+            
+        } else {
+            console.log('data already loaded');
+        }
+   }
+    
+    $scope.waiting();
+
+}
+
+function jgchstep2GameCtrl($scope,$timeout,$rootScope,$location){
+    
+    
+    console.log(">>>>>>参与者击鼓传花游戏准备开始<<<<<<");
+    console.log('>>>>>>获取用户ID==g_userid<<<<<<'+ g_userid);
+    console.log('>>>>>>获取用户游戏编号<<<<<<'+ localStorage.g_gamenum);
+    
+    var jgchurl = g_baseurl + '/JujuDemo/servlet/Senddrumflowerinfo?gamehomenum='+localStorage.g_gamenum+'&istimeover=3&gameuserid=1&id='+g_userid;
+    
+    console.log(jgchurl);
+
+    
+
+
+}
