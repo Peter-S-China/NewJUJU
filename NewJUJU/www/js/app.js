@@ -37,9 +37,11 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
         
              
              
-              $routeProvider.when('/cbs2', {templateUrl: 'partials/cbs2.html', controller: 'HomeCtrl'});  
+    $routeProvider.when('/cbs2', {templateUrl: 'partials/cbs2.html', controller: 'HomeCtrl'});
              
         $routeProvider.when('/dmxview', {templateUrl: 'partials/dmx_view.html', controller: 'HomeCtrl'});
+             
+             
          $routeProvider.when('/dmxview2', {templateUrl: 'partials/dmx_view2.html', controller: 'HomeCtrl'});
              
         $routeProvider.when('/inggameview', {templateUrl: 'partials/inggame.html', controller: 'HomeCtrl'});
@@ -60,12 +62,20 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
      $routeProvider.when('/jgchview3', {templateUrl: 'partials/jgchview3.html', controller: 'HomeCtrl'});
              
        $routeProvider.when('/jgchview4', {templateUrl: 'partials/jgchview4.html', controller: 'HomeCtrl'});
+             
     
     $routeProvider.when('/diceview', {templateUrl: 'partials/diceview.html', controller: 'HomeCtrl'});
              
       $routeProvider.when('/diceviewc1', {templateUrl: 'partials/diceviewc1.html', controller: 'HomeCtrl'});
              
      $routeProvider.when('/diceviewc2', {templateUrl: 'partials/diceviewc2.html', controller: 'HomeCtrl'});
+             
+             
+    $routeProvider.when('/diceviewc3', {templateUrl: 'partials/diceviewc3.html', controller: 'HomeCtrl'});
+             
+             
+ 
+             
              
              
            $routeProvider.when('/flatview', {templateUrl: 'partials/flatview.html', controller: 'HomeCtrl'});  

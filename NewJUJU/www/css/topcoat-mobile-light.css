@@ -2059,3 +2059,41 @@ text-align:center;
   height:40px;
   left:90px;
 }
+
+.dice-menu-open-btn{
+  background-image: url("../img/dice/open.png");
+  background-repeat: no-repeat;
+
+  position:fixed;
+  bottom:0;
+  width:170px;
+  height:40px;
+  left:90px;
+}
+
+.dice-area{
+position:fixed;
+
+display:block;
+top:150px;
+left:30px;
+}
+.roll-button-icon{
+display:block;
+width:120px;
+height:100px;
+}
+
+.dice-menu-jieguo-bar{
+  background-image: url("../img/dice/jieguo.png");
+  font: inherit;
+  color: inherit;
+  border: none;
+  user-select: none;
+  height: 290px;
+  width:192px;
+  color: #fff;
+  margin-top:80px;
+  margin-left:65px;
+
+}
